@@ -1,22 +1,56 @@
 {
-  "name": "nextjs",
-  "version": "0.1.0",
+  "name": "saasternity",
+  "version": "1.0.0",
+  "description": "Modern website template combining shadcn/ui and Aceternity UI components",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "rm -rf .next node_modules/.cache",
+    "setup": "npm install && npm run build",
+    "add:shadcn": "npx shadcn@latest add",
+    "generate:site": "node scripts/generate-site.js",
+    "test:build": "npm run build && npm start"
   },
   "dependencies": {
-    "@tabler/icons-react": "^3.12.0",
+    "@radix-ui/react-dropdown-menu": "^2.1.2",
+    "@radix-ui/react-hover-card": "^1.1.14",
+    "@radix-ui/react-icons": "^1.3.2",
+    "@radix-ui/react-navigation-menu": "^1.2.2",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tabs": "^1.1.12",
+    "@radix-ui/react-toggle": "^1.1.1",
+    "@react-three/drei": "^10.5.1",
+    "@react-three/fiber": "^9.2.0",
+    "@tabler/icons-react": "^3.34.0",
+    "@tsparticles/engine": "^3.8.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.8.1",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.3.30",
-    "next": "14.2.6",
-    "react": "^18",
-    "react-dom": "^18",
+    "framer-motion": "^11.18.2",
+    "lucide-react": "^0.469.0",
+    "mini-svg-data-uri": "^1.4.4",
+    "motion": "^12.23.6",
+    "next": "^15.4.1",
+    "next-themes": "^0.4.4",
+    "qss": "^3.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-dropzone": "^14.3.8",
+    "react-use": "^17.5.1",
+    "react-use-measure": "^2.1.7",
     "react-wrap-balancer": "^1.1.1",
-    "tailwind-merge": "^2.5.2"
+    "simplex-noise": "^4.0.3",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.178.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -29,5 +63,26 @@
     "prettier-plugin-tailwindcss": "^0.6.6",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "tailwindcss",
+    "shadcn-ui",
+    "aceternity-ui",
+    "template",
+    "boilerplate",
+    "website-builder",
+    "client-projects"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/saasternity"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   }
 }
