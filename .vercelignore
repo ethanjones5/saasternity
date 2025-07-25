@@ -1,0 +1,18 @@
+# Documentation files - not needed for production
+ACETERNITY_GUIDE.md
+ACETERNITY_INTEGRATION_REPORT.md
+PERFORMANCE_GUIDE.md
+README.md
+
+# Development scripts - not needed for production
+scripts/
+
+# These are automatically excluded by Vercel but listing for clarity
+node_modules/
+.next/
+.git/
+*.log
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local 

@@ -1,7 +1,7 @@
 {
-  "name": "saasternity",
+  "name": "evadesign-mockup",
   "version": "1.0.0",
-  "description": "Modern website template combining shadcn/ui and Aceternity UI components",
+  "description": "Eva Design Mockup - Modern website template combining shadcn/ui and Aceternity UI components",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -79,7 +79,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/saasternity"
+    "url": "https://github.com/yourusername/evadesign-mockup"
   },
   "engines": {
     "node": ">=18.0.0",

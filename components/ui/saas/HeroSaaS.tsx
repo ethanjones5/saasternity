@@ -1,4 +1,5 @@
 import * as React from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 export interface HeroSaaSProps {
@@ -52,7 +53,7 @@ export function HeroSaaS({
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-8">
             {/* Subheading */}
-            <div className="inline-flex items-center px-3 py-1 text-sm font-medium bg-blue-50 text-blue-700 rounded-full border border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800">
+                            <div className="inline-flex items-center px-3 py-1 text-sm font-medium bg-slate-50/80 text-slate-600 rounded-full border border-slate-200/80 dark:bg-slate-900/16 dark:text-slate-400 dark:border-slate-800/80">
               {subheading}
             </div>
             
@@ -96,19 +97,20 @@ export function HeroSaaS({
           {heroImage && (
             <div className="relative lg:order-last">
               <div className="relative aspect-[4/3] lg:aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                <img
+                <Image
                   src={heroImage.src}
                   alt={heroImage.alt}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
                 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20" />
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-slate-500/16 to-gray-500/16" />
               </div>
               
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-500 rounded-full opacity-20 blur-xl" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-purple-500 rounded-full opacity-20 blur-xl" />
+                                                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-slate-500 rounded-full opacity-16 blur-xl" />
+                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gray-500 rounded-full opacity-16 blur-xl" />
             </div>
           )}
         </div>

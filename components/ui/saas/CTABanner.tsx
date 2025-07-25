@@ -34,78 +34,52 @@ export function CTABanner({
     lg: "py-20 md:py-28",
   }
 
-  const variantClasses = {
-    default: "bg-blue-600 dark:bg-blue-700",
-    gradient: "bg-gradient-to-r from-blue-600 to-purple-600",
-    minimal: "bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800",
-  }
-
-  const textColorClass = variant === "minimal" 
-    ? "text-gray-900 dark:text-white" 
-    : "text-white"
-
-  const descriptionColorClass = variant === "minimal"
-    ? "text-gray-600 dark:text-gray-300"
-    : "text-blue-100"
-
   return (
-    <section className={`relative overflow-hidden ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}>
-      {/* Background Pattern for gradient variant */}
-      {variant === "gradient" && (
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-white/5 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px]" />
-        </div>
-      )}
-      
+    <section className={`${sizeClasses[size]} ${className}`}>
       {/* Content Container */}
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          {/* Heading */}
-          <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight ${textColorClass} leading-tight`}>
-            {heading}
-          </h2>
-          
-          {/* Description */}
-          {description && (
-            <p className={`text-lg md:text-xl ${descriptionColorClass} leading-relaxed max-w-2xl mx-auto`}>
-              {description}
-            </p>
-          )}
-          
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button
-              size="lg"
-              variant={primaryCTA.variant || (variant === "minimal" ? "default" : "secondary")}
-              asChild
-              className="px-8 py-3 text-base font-semibold min-w-[200px]"
-            >
-              <a href={primaryCTA.href}>{primaryCTA.text}</a>
-            </Button>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-card border border-border rounded-2xl p-12 text-center hover-lift">
+          <div className="max-w-2xl mx-auto space-y-6">
+            {/* Heading */}
+            <h2 className="text-foreground">
+              {heading}
+            </h2>
             
-            {secondaryCTA && (
+            {/* Description */}
+            {description && (
+              <p className="subtitle text-muted-foreground">
+                {description}
+              </p>
+            )}
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
               <Button
                 size="lg"
-                variant={secondaryCTA.variant || (variant === "minimal" ? "outline" : "ghost")}
+                variant={primaryCTA.variant || "default"}
                 asChild
-                className={`px-8 py-3 text-base font-semibold min-w-[200px] ${
-                  variant !== "minimal" ? "text-white hover:text-blue-600 border-white/20 hover:bg-white" : ""
-                }`}
+                className="group relative overflow-hidden h-12 px-8 bg-primary hover:bg-primary/90 text-primary-foreground"
               >
-                <a href={secondaryCTA.href}>{secondaryCTA.text}</a>
+                <a href={primaryCTA.href}>
+                  <span className="relative z-10">{primaryCTA.text}</span>
+                  <div className="absolute inset-0 bg-slate-800 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                </a>
               </Button>
-            )}
+              
+              {secondaryCTA && (
+                <Button
+                  size="lg"
+                  variant={secondaryCTA.variant || "outline"}
+                  asChild
+                  className="h-12 px-8"
+                >
+                  <a href={secondaryCTA.href}>{secondaryCTA.text}</a>
+                </Button>
+              )}
+            </div>
           </div>
         </div>
       </div>
-      
-      {/* Decorative Elements */}
-      {variant !== "minimal" && (
-        <>
-          <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -translate-x-16 -translate-y-16 blur-xl" />
-          <div className="absolute bottom-0 right-0 w-40 h-40 bg-white/10 rounded-full translate-x-20 translate-y-20 blur-xl" />
-        </>
-      )}
     </section>
   )
 } 
